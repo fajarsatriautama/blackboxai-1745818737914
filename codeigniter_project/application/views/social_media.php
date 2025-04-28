@@ -1,0 +1,85 @@
+<!-- Social Media Section -->
+<section class="mt-16 bg-white shadow-inner py-12">
+    <div class="max-w-6xl mx-auto px-6">
+        <h3 class="text-2xl font-semibold mb-8 text-center text-blue-600">Ikuti Kami</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- YouTube Widget -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div class="bg-gradient-to-br from-red-100 to-red-200 p-6 text-center">
+                    <i class="fab fa-youtube text-6xl text-red-600"></i>
+                    <h4 class="text-xl font-semibold mt-4 text-gray-800">YouTube</h4>
+                    <p class="mt-2 text-gray-600">KIT Madrasah Official</p>
+                </div>
+                <div class="p-4 text-center">
+                    <div class="flex flex-col space-y-2">
+                        <p class="text-gray-600">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>1.2K Subscribers</span>
+                        </p>
+                        <p class="text-gray-600">
+                            <i class="fas fa-video mr-2"></i>
+                            <span>25 Videos</span>
+                        </p>
+                        <a href="https://youtube.com/@KITMadrasah" target="_blank" 
+                           class="mt-2 inline-flex items-center justify-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">
+                            <i class="fab fa-youtube mr-2"></i>
+                            Subscribe
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram Widget -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div class="bg-gradient-to-br from-pink-100 to-purple-200 p-6 text-center">
+                    <i class="fab fa-instagram text-6xl text-pink-600"></i>
+                    <h4 class="text-xl font-semibold mt-4 text-gray-800">Instagram</h4>
+                    <p class="mt-2 text-gray-600">@kit.madrasah</p>
+                </div>
+                <div class="p-4 text-center">
+                    <div class="flex flex-col space-y-2">
+                        <p class="text-gray-600">
+                            <i class="fas fa-heart mr-2"></i>
+                            <span>5K Followers</span>
+                        </p>
+                        <p class="text-gray-600">
+                            <i class="fas fa-image mr-2"></i>
+                            <span>100 Posts</span>
+                        </p>
+                        <a href="https://instagram.com/kit.madrasah" target="_blank"
+                           class="mt-2 inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-md hover:from-pink-600 hover:to-purple-700 transition">
+                            <i class="fab fa-instagram mr-2"></i>
+                            Follow
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TikTok Widget -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 text-center">
+                    <i class="fab fa-tiktok text-6xl text-gray-800"></i>
+                    <h4 class="text-xl font-semibold mt-4 text-gray-800">TikTok</h4>
+                    <p class="mt-2 text-gray-600">@kitmadrasah</p>
+                </div>
+                <div class="p-4 text-center">
+                    <div class="flex flex-col space-y-2">
+                        <p class="text-gray-600">
+                            <i class="fas fa-play mr-2"></i>
+                            <span>10K Followers</span>
+                        </p>
+                        <p class="text-gray-600">
+                            <i class="fas fa-music mr-2"></i>
+                            <span>50 Videos</span>
+                        </p>
+                        <a href="https://tiktok.com/@kitmadrasah" target="_blank"
+                           class="mt-2 inline-flex items-center justify-center bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition">
+                            <i class="fab fa-tiktok mr-2"></i>
+                            Follow
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
