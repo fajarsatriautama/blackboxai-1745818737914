@@ -18,10 +18,10 @@
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-blue-600">Klub Informatika dan Teknologi (KIT) Madrasah</h1>
       <nav class="space-x-6 text-gray-700">
-        <a href="<?= site_url('home') ?>" class="hover:text-blue-600">Home</a>
-        <a href="<?= site_url('auth/member_login') ?>" class="hover:text-blue-600">Member Login</a>
-        <a href="<?= site_url('auth/admin_login') ?>" class="hover:text-blue-600">Admin Login</a>
-        <a href="<?= site_url('auth/register') ?>" class="hover:text-blue-600">Register</a>
+        <a href="<?= site_url('home') ?>" class="hover:text-blue-600">Beranda</a>
+        <a href="<?= site_url('auth/anggota_login') ?>" class="hover:text-blue-600">Login Anggota</a>
+        <a href="<?= site_url('auth/admin_login') ?>" class="hover:text-blue-600">Login Admin</a>
+        <a href="<?= site_url('auth/register') ?>" class="hover:text-blue-600">Daftar</a>
       </nav>
     </div>
   </header>
@@ -43,16 +43,18 @@
           <?php endforeach; ?>
         <?php else: ?>
           <div class="absolute inset-0 opacity-100 flex items-center justify-center bg-gray-300">
-            <p class="text-gray-700 text-xl">No sliders available</p>
+            <p class="text-gray-700 text-xl">Belum ada slider tersedia</p>
           </div>
         <?php endif; ?>
       </div>
-      <button id="prevSlide" aria-label="Previous Slide" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 shadow">
-        <i class="fas fa-chevron-left text-gray-800"></i>
-      </button>
-      <button id="nextSlide" aria-label="Next Slide" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 shadow">
-        <i class="fas fa-chevron-right text-gray-800"></i>
-      </button>
+      <?php if (!empty($sliders)): ?>
+        <button id="prevSlide" aria-label="Slide Sebelumnya" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 shadow">
+          <i class="fas fa-chevron-left text-gray-800"></i>
+        </button>
+        <button id="nextSlide" aria-label="Slide Berikutnya" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 shadow">
+          <i class="fas fa-chevron-right text-gray-800"></i>
+        </button>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -70,21 +72,21 @@
               <h4 class="font-semibold text-lg mb-2"><?= htmlspecialchars($post->title) ?></h4>
               <p class="text-gray-600 mb-3"><?= substr(strip_tags($post->content), 0, 150) ?>...</p>
               <div class="flex justify-between items-center text-sm text-gray-500">
-                <span>By <?= htmlspecialchars($post->author_name) ?></span>
-                <span><?= date('M d, Y', strtotime($post->created_at)) ?></span>
+                <span>Oleh <?= htmlspecialchars($post->author_name) ?></span>
+                <span><?= date('d M Y', strtotime($post->created_at)) ?></span>
               </div>
             </div>
           </div>
         <?php endforeach; ?>
       <?php else: ?>
-        <p class="text-center text-gray-600 col-span-3">No posts available</p>
+        <p class="text-center text-gray-600 col-span-3">Belum ada artikel tersedia</p>
       <?php endif; ?>
     </div>
   </section>
 
-  <!-- YouTube Thumbnail Slider -->
+  <!-- YouTube Videos Section -->
   <section class="mt-16 max-w-6xl mx-auto px-6">
-    <h3 class="text-2xl font-semibold mb-6 text-center text-blue-600">YouTube Videos</h3>
+    <h3 class="text-2xl font-semibold mb-6 text-center text-blue-600">Video YouTube</h3>
     <div class="relative">
       <div class="overflow-x-auto">
         <div id="youtubeSlider" class="flex space-x-4 pb-4">
@@ -100,13 +102,13 @@
                   <h4 class="font-semibold text-lg line-clamp-2"><?= htmlspecialchars($thumbnail->title) ?></h4>
                   <div class="mt-2 flex items-center text-blue-600">
                     <i class="fab fa-youtube mr-2"></i>
-                    <span>Watch Video</span>
+                    <span>Tonton Video</span>
                   </div>
                 </div>
               </a>
             <?php endforeach; ?>
           <?php else: ?>
-            <p class="text-center text-gray-600 w-full">No YouTube videos available</p>
+            <p class="text-center text-gray-600 w-full">Belum ada video tersedia</p>
           <?php endif; ?>
         </div>
       </div>
@@ -138,16 +140,6 @@
       });
     }
 
-    document.getElementById('prevSlide')?.addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      showSlide(currentSlide);
-    });
-
-    document.getElementById('nextSlide')?.addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    });
-
     // YouTube slider functionality
     function scrollYoutubeSlider(direction) {
       const slider = document.getElementById('youtubeSlider');
@@ -168,6 +160,18 @@
     // Initialize home slider
     if (totalSlides > 0) {
       showSlide(currentSlide);
+      
+      // Add click handlers for navigation buttons
+      document.getElementById('prevSlide')?.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+      });
+
+      document.getElementById('nextSlide')?.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      });
+
       // Auto advance slides every 5 seconds
       setInterval(() => {
         currentSlide = (currentSlide + 1) % totalSlides;
