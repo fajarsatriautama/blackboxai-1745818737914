@@ -16,10 +16,10 @@
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-blue-600">Klub Informatika dan Teknologi (KIT) Madrasah</h1>
       <nav class="space-x-6 text-gray-700">
-        <a href="#" class="hover:text-blue-600">Beranda</a>
-        <a href="#" class="hover:text-blue-600">Login Anggota</a>
-        <a href="#" class="hover:text-blue-600">Login Admin</a>
-        <a href="#" class="hover:text-blue-600">Daftar</a>
+        <a href="index.html" class="hover:text-blue-600">Beranda</a>
+        <a href="anggota.html" class="hover:text-blue-600">Login Anggota</a>
+        <a href="admin.html" class="hover:text-blue-600">Login Admin</a>
+        <a href="register.html" class="hover:text-blue-600">Daftar</a>
       </nav>
     </div>
   </header>
@@ -48,6 +48,77 @@
         <i class="fas fa-chevron-left text-gray-800"></i>
       </button>
       <button id="nextSlide" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 shadow">
+        <i class="fas fa-chevron-right text-gray-800"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Member Slider Section -->
+  <section class="mt-16 max-w-6xl mx-auto px-6">
+    <h3 class="text-2xl font-semibold mb-6 text-center text-blue-600">Anggota KIT Madrasah</h3>
+    <div class="relative">
+      <div class="overflow-x-auto">
+        <div id="memberSlider" class="flex space-x-4 pb-4">
+          <!-- Member 1 -->
+          <div class="min-w-[200px] bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="w-full h-[200px] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+              <i class="fas fa-user-tie text-6xl text-blue-600"></i>
+            </div>
+            <div class="p-4 text-center">
+              <h4 class="font-semibold text-lg">Fajar Satria Utama</h4>
+              <p class="text-blue-600 mt-1">Ketua</p>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="min-w-[200px] bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="w-full h-[200px] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+              <i class="fas fa-user text-6xl text-blue-600"></i>
+            </div>
+            <div class="p-4 text-center">
+              <h4 class="font-semibold text-lg">Ahmad</h4>
+              <p class="text-blue-600 mt-1">Wakil Ketua</p>
+            </div>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="min-w-[200px] bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="w-full h-[200px] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+              <i class="fas fa-user text-6xl text-blue-600"></i>
+            </div>
+            <div class="p-4 text-center">
+              <h4 class="font-semibold text-lg">Sarah</h4>
+              <p class="text-blue-600 mt-1">Sekretaris</p>
+            </div>
+          </div>
+
+          <!-- Member 4 -->
+          <div class="min-w-[200px] bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="w-full h-[200px] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+              <i class="fas fa-user text-6xl text-blue-600"></i>
+            </div>
+            <div class="p-4 text-center">
+              <h4 class="font-semibold text-lg">Rizki</h4>
+              <p class="text-blue-600 mt-1">Bendahara</p>
+            </div>
+          </div>
+
+          <!-- Member 5 -->
+          <div class="min-w-[200px] bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="w-full h-[200px] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+              <i class="fas fa-user text-6xl text-blue-600"></i>
+            </div>
+            <div class="p-4 text-center">
+              <h4 class="font-semibold text-lg">Andi</h4>
+              <p class="text-blue-600 mt-1">Koordinator IT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button onclick="scrollMemberSlider('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-3 shadow-lg z-10">
+        <i class="fas fa-chevron-left text-gray-800"></i>
+      </button>
+      <button onclick="scrollMemberSlider('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-3 shadow-lg z-10">
         <i class="fas fa-chevron-right text-gray-800"></i>
       </button>
     </div>
@@ -183,6 +254,23 @@
     function scrollYoutubeSlider(direction) {
       const slider = document.getElementById('youtubeSlider');
       const scrollAmount = 300; // Width of one thumbnail
+      if (direction === 'left') {
+        slider.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+        });
+      } else {
+        slider.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Member slider functionality
+    function scrollMemberSlider(direction) {
+      const slider = document.getElementById('memberSlider');
+      const scrollAmount = 200; // Width of one member card
       if (direction === 'left') {
         slider.scrollBy({
           left: -scrollAmount,
