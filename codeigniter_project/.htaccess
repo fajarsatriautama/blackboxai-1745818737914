@@ -1,0 +1,36 @@
+# Disable directory browsing
+Options -Indexes
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Redirect all requests to index.php except existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Protect application and system folders
+<IfModule mod_rewrite.c>
+    RewriteRule ^(application|system|database|tests) - [F,L,NC]
+</IfModule>
+
+# Allow access to uploads directory
+<IfModule mod_authz_core.c>
+    <Directory "uploads">
+        Require all granted
+    </Directory>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <Directory "uploads">
+        Order allow,deny
+        Allow from all
+    </Directory>
+</IfModule>
+
+# Set file permissions for uploads
+<FilesMatch "\.(jpg|jpeg|png|gif|svg)$">
+    Require all granted
+</FilesMatch>
