@@ -35,4 +35,7 @@ $route['auth/logout'] = 'auth/logout';
 $route['admin_login'] = 'auth/admin_login';
 $route['anggota_login'] = 'auth/anggota_login';
 $route['register'] = 'auth/register';
+
+// Pendaftaran routes
+$route['pendaftaran/data-diri'] = 'pendaftaran/data_diri';
 ?>
